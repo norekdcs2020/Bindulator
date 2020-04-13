@@ -1,0 +1,14 @@
+Dim qtevent As qtclass
+
+Private Sub Workbook_Open()
+
+Set qtevent = New qtclass
+Set qtevent.HookedTable = Arkusz4.ListObjects("Przyciski_Kontroler1i2_duplikaty_przyciskow_i_funkcji").QueryTable
+
+Arkusz5.Range("J14").Value = "NIEWYKONANA" & Chr(10) & "NOT PERFORMED"
+Arkusz5.Range("J27").Value = "NIEWYKONANA" & Chr(10) & "NOT PERFORMED"
+Arkusz5.Range("J39").Value = "NIEWYKONANY" & Chr(10) & "NOT PERFORMED"
+
+MsgBox "Witaj w BINDULATORZE! / Welcome to BINDULATOR!" & Chr(10) & Chr(10) & "Wszystkie prawa są zastrzeżone przez 'norekdcs2020' (GPLv2)" & Chr(10) & "All rights are reserved by 'norekdcs2020' (GPLv2)" & Chr(10) & Chr(10) & "https://github.com/norekdcs2020/Bindulator/"
+
+End Sub

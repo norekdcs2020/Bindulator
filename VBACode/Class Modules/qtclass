@@ -1,0 +1,24 @@
+Option Explicit
+
+Private WithEvents qt As Excel.QueryTable
+Public Property Set HookedTable(q As Excel.QueryTable)
+    Set qt = q
+End Property
+
+Private Sub qt_AfterRefresh(ByVal Success As Boolean)
+
+    AppActivate Application.Caption
+
+    MsgBox "Zakończono odświeżanie danych." & Chr(10) & "Data refresh has ended."
+
+    If Arkusz4.Range("W2").Value = 0 Then
+    Arkusz5.Range("J14").Value = "ZAKOŃCZONA" & Chr(10) & "DONE"
+    Else
+    Arkusz5.Range("J14").Value = "SĄ DUPLIKATY" & Chr(10) & "DUPLICATES PRESENT"
+    End If
+   
+End Sub
+
+Private Sub qt_BeforeRefresh(Cancel As Boolean)
+    MsgBox "Odświeżanie danych rozpoczyna się. Proszę potwierdź i czekaj." & Chr(10) & "Data refresh is starting. Please confirm and wait."
+End Sub

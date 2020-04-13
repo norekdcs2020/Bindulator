@@ -1,0 +1,635 @@
+
+#If VBA7 Then ' Excel 2010 or later
+     Public Declare PtrSafe Sub Sleep Lib "kernel32" (ByVal Milliseconds As LongPtr)
+#Else ' Excel 2007 or earlier
+     Public Declare Sub Sleep Lib "kernel32" (ByVal Milliseconds As Long)
+#End If
+
+
+Sub HTML_Plik_bindow_Kontroler_1()
+
+Dim Z_Plik_bindow_kontroler1 As FileDialog
+Dim S_temp, S_Path As String
+
+Set Z_Plik_bindow_kontroler1 = Application.FileDialog(msoFileDialogFilePicker)
+With Z_Plik_bindow_kontroler1
+    S_Path = (Environ("USERPROFILE") & "/Saved Games/")
+    .InitialFileName = S_Path
+    .Title = "Wybierz plik bindów HTML Kontrolera 1 wyeksportowanego przez DCS, Choose HTML bind file for Controller 1 exported via DCS"
+    .Filters.Clear
+    .Filters.Add "Tylko pliki HTML, Only HTML files", "*.html", 1
+    Application.SendKeys "{BACKSPACE}", True
+    S_temp = .Show
+    If S_temp = -1 Then Arkusz5.Range("F9").Value = .SelectedItems(1)
+    If S_temp <> -1 Then Arkusz5.Range("F9").Value = ""
+End With
+End Sub
+
+
+Sub HTML_Plik_bindow_Kontroler_2()
+
+Dim Z_Plik_bindow_kontroler2 As FileDialog
+Dim S_temp, S_Path As String
+
+Set Z_Plik_bindow_kontroler2 = Application.FileDialog(msoFileDialogFilePicker)
+With Z_Plik_bindow_kontroler2
+    S_Path = (Environ("USERPROFILE") & "/Saved Games/")
+    .InitialFileName = S_Path
+    .Title = "Wybierz plik bindów HTML Kontrolera 1 wyeksportowanego przez DCS, Choose HTML bind file for Controller 1 exported via DCS"
+    .Filters.Clear
+    .Filters.Add "Tylko pliki HTML, Only HTML files", "*.html", 1
+    Application.SendKeys "{BACKSPACE}", True
+    S_temp = .Show
+    If S_temp = -1 Then Arkusz5.Range("F12").Value = .SelectedItems(1)
+    If S_temp <> -1 Then Arkusz5.Range("F12").Value = ""
+End With
+End Sub
+
+
+Sub PDF_Plik_szablonu()
+
+Dim Z_Plik_szablonu As FileDialog
+Dim S_temp, S_Path As String
+
+Set Z_Plik_szablonu = Application.FileDialog(msoFileDialogFilePicker)
+With Z_Plik_szablonu
+    S_Path = (Environ("USERPROFILE") & "/Saved Games/")
+    .InitialFileName = S_Path
+    .Title = "Wybierz szablon PDF, Choose PDF template"
+    .Filters.Clear
+    .Filters.Add "Tylko pliki PDF, Only PDF files", "*.pdf", 1
+    Application.SendKeys "{BACKSPACE}", True
+    S_temp = .Show
+    If S_temp = -1 Then Arkusz5.Range("F18").Value = .SelectedItems(1)
+    If S_temp <> -1 Then Arkusz5.Range("F18").Value = ""
+End With
+End Sub
+
+
+Sub PDF_Folder_zapisu()
+Dim Z_Folder_zapisu As FileDialog
+Dim S_temp, S_Path As String
+
+Set Z_Folder_zapisu = Application.FileDialog(msoFileDialogFolderPicker)
+With Z_Folder_zapisu
+    S_Path = (Environ("USERPROFILE") & "/Saved Games/")
+    .InitialFileName = S_Path
+    .Title = "Wybierz folder do zapisu wizualizacji bindów, Choose folder for saving bind visualization"
+    Application.SendKeys "{BACKSPACE}", True
+    S_temp = .Show
+    If S_temp = -1 Then Arkusz5.Range("F21").Value = .SelectedItems(1)
+    If S_temp <> -1 Then Arkusz5.Range("F21").Value = ""
+End With
+End Sub
+
+
+Sub PDF_Plik_exe_edytora()
+Dim Z_Plik_exe_edytora As FileDialog
+Dim S_temp, S_Path As String
+
+Set Z_Plik_exe_edytora = Application.FileDialog(msoFileDialogFilePicker)
+With Z_Plik_exe_edytora
+    S_Path = (Environ("USERPROFILE") & "/Saved Games/")
+    .InitialFileName = S_Path
+    .Title = "Wybierz lokalizację pliku .exe Twojego edytora PDF, Choose .exe file of your PDF editor"
+    .Filters.Clear
+    .Filters.Add "Tylko pliki EXE, Only EXE files", "*.exe", 1
+    Application.SendKeys "{BACKSPACE}", True
+    S_temp = .Show
+    If S_temp = -1 Then Arkusz5.Range("F24").Value = .SelectedItems(1)
+    If S_temp <> -1 Then Arkusz5.Range("F24").Value = ""
+End With
+End Sub
+
+
+Sub PDF_Plik_do_kneeboarda()
+Dim Z_Plik_do_kneeboarda As FileDialog
+Dim S_temp, S_Path As String
+
+Set Z_Plik_do_kneeboarda = Application.FileDialog(msoFileDialogFilePicker)
+With Z_Plik_do_kneeboarda
+    S_Path = (Environ("USERPROFILE") & "/Saved Games/")
+    .InitialFileName = S_Path
+    .Title = "Wybierz gotową wizualizację bindów w formacie PDF, Choose finished bind visualization in PDF"
+    .Filters.Clear
+    .Filters.Add "Tylko pliki PDF, Only PDF files", "*.pdf", 1
+    Application.SendKeys "{BACKSPACE}", True
+    S_temp = .Show
+    If S_temp = -1 Then Arkusz5.Range("F34").Value = .SelectedItems(1)
+    If S_temp <> -1 Then Arkusz5.Range("F34").Value = ""
+End With
+End Sub
+
+
+Sub PDF_Folder_do_kneeboarda()
+Dim Z_Folder_do_kneeboarda As FileDialog
+Dim S_temp, S_Path As String
+
+Set Z_Folder_do_kneeboarda = Application.FileDialog(msoFileDialogFolderPicker)
+With Z_Folder_do_kneeboarda
+    S_Path = (Environ("USERPROFILE") & "/Saved Games/")
+    .InitialFileName = S_Path
+    .Title = "Wybierz folder do zapisu Kneeboardów, Choose folder for saving Kneeboards"
+    Application.SendKeys "{BACKSPACE}", True
+    S_temp = .Show
+    If S_temp = -1 Then Arkusz5.Range("F37").Value = .SelectedItems(1)
+    If S_temp <> -1 Then Arkusz5.Range("F37").Value = ""
+End With
+End Sub
+
+
+Sub Zainicjalizuj()
+
+Dim Z_wb As Workbook
+Dim Z_Plik_bindow_kontroler1, Z_Plik_bindow_kontroler2 As String
+Dim Z_TypKontroler1, Z_TypKontroler2 As String
+
+Arkusz5.Range("J14").Value = "NIEWYKONANA" & Chr(10) & "NOT PERFORMED"
+Arkusz5.Range("J27").Value = "NIEWYKONANA" & Chr(10) & "NOT PERFORMED"
+Arkusz5.Range("J39").Value = "NIEWYKONANY" & Chr(10) & "NOT PERFORMED"
+
+Z_TypKontroler1 = Arkusz5.Range("G6").Value
+Z_TypKontroler2 = Arkusz5.Range("J6").Value
+Arkusz1.Range("A2").Value = Z_TypKontroler1
+Arkusz1.Range("E2").Value = Z_TypKontroler2
+
+Z_Plik_bindow_kontroler1 = Arkusz5.Range("F9").Value
+Z_Plik_bindow_kontroler2 = Arkusz5.Range("F12").Value
+
+Arkusz2.Range("A2:C2000").ClearContents
+If Z_Plik_bindow_kontroler1 = "" Then GoTo BrakKontrolera1w
+Set Z_wb = Workbooks.Open(Z_Plik_bindow_kontroler1)
+Arkusz2.Range("A2:C2000").Value = Z_wb.Sheets(1).Range("A2:C2000").Value
+ActiveWorkbook.Close
+BrakKontrolera1w:
+
+Arkusz3.Range("A2:C2000").ClearContents
+If Z_Plik_bindow_kontroler2 = "" Then GoTo BrakKontrolera2w
+Set Z_wb = Workbooks.Open(Z_Plik_bindow_kontroler2)
+Arkusz3.Range("A2:C2000").Value = Z_wb.Sheets(1).Range("A2:C2000").Value
+ActiveWorkbook.Close
+BrakKontrolera2w:
+
+Arkusz1.Range("B2:C101").ClearContents
+Select Case Z_TypKontroler1
+    Case "Warthog_Stick"
+    Arkusz1.Range("B2:C101").Value = Arkusz0.Range("C2:D101").Value
+    Case "Warthog_Throttle"
+    Arkusz1.Range("B2:C101").Value = Arkusz0.Range("F2:G101").Value
+    Case "T.16000M_Stick"
+    Arkusz1.Range("B2:C101").Value = Arkusz0.Range("I2:J101").Value
+    Case "T.16000M_FCS_Stick"
+    Arkusz1.Range("B2:C101").Value = Arkusz0.Range("L2:M101").Value
+    Case "TWCS_Throttle"
+    Arkusz1.Range("B2:C101").Value = Arkusz0.Range("O2:P101").Value
+    Case "T50CM2_Stick"
+    Arkusz1.Range("B2:C101").Value = Arkusz0.Range("R2:S101").Value
+    Case "Force_3D_Pro_Stick"
+    Arkusz1.Range("B2:C101").Value = Arkusz0.Range("U2:V101").Value
+    Case "Extreme_3D_Pro_Stick"
+    Arkusz1.Range("B2:C101").Value = Arkusz0.Range("X2:Y101").Value
+    Case "X52_Stick"
+    Arkusz1.Range("B2:C101").Value = Arkusz0.Range("AA2:AB101").Value
+    Case "X52_Throttle"
+    Arkusz1.Range("B2:C101").Value = Arkusz0.Range("AD2:AE101").Value
+    Case "X52_Pro_Stick"
+    Arkusz1.Range("B2:C101").Value = Arkusz0.Range("AG2:AH101").Value
+    Case "X52_Pro_Throttle"
+    Arkusz1.Range("B2:C101").Value = Arkusz0.Range("AJ2:AK101").Value
+    Case "X56_Rhino_Stick"
+    Arkusz1.Range("B2:C101").Value = Arkusz0.Range("AM2:AN101").Value
+    Case "X56_Rhino_Throttle"
+    Arkusz1.Range("B2:C101").Value = Arkusz0.Range("AP2:AQ101").Value
+    Case "Cougar_MFD_Left"
+    Arkusz1.Range("B2:C101").Value = Arkusz0.Range("AS2:AT101").Value
+    Case "Cougar_MFD_Right"
+    Arkusz1.Range("B2:C101").Value = Arkusz0.Range("AV2:AW101").Value
+    Case ""
+    Arkusz2.Range("A2:C2000").ClearContents
+    
+End Select
+
+Arkusz1.Range("F2:G101").ClearContents
+Select Case Z_TypKontroler2
+    Case "Warthog_Stick"
+    Arkusz1.Range("F2:G101").Value = Arkusz0.Range("C2:D101").Value
+    Case "Warthog_Throttle"
+    Arkusz1.Range("F2:G101").Value = Arkusz0.Range("F2:G101").Value
+    Case "T.16000M_Stick"
+    Arkusz1.Range("F2:G101").Value = Arkusz0.Range("I2:J101").Value
+    Case "T.16000M_FCS_Stick"
+    Arkusz1.Range("F2:G101").Value = Arkusz0.Range("L2:M101").Value
+    Case "TWCS_Throttle"
+    Arkusz1.Range("F2:G101").Value = Arkusz0.Range("O2:P101").Value
+    Case "T50CM2_Stick"
+    Arkusz1.Range("F2:G101").Value = Arkusz0.Range("R2:S101").Value
+    Case "Force_3D_Pro_Stick"
+    Arkusz1.Range("F2:G101").Value = Arkusz0.Range("U2:V101").Value
+    Case "Extreme_3D_Pro_Stick"
+    Arkusz1.Range("F2:G101").Value = Arkusz0.Range("X2:Y101").Value
+    Case "X52_Stick"
+    Arkusz1.Range("F2:G101").Value = Arkusz0.Range("AA2:AB101").Value
+    Case "X52_Throttle"
+    Arkusz1.Range("F2:G101").Value = Arkusz0.Range("AD2:AE101").Value
+    Case "X52_Pro_Stick"
+    Arkusz1.Range("F2:G101").Value = Arkusz0.Range("AG2:AH101").Value
+    Case "X52_Pro_Throttle"
+    Arkusz1.Range("F2:G101").Value = Arkusz0.Range("AJ2:AK101").Value
+    Case "X56_Rhino_Stick"
+    Arkusz1.Range("F2:G101").Value = Arkusz0.Range("AM2:AN101").Value
+    Case "X56_Rhino_Throttle"
+    Arkusz1.Range("F2:G101").Value = Arkusz0.Range("AP2:AQ101").Value
+    Case "Cougar_MFD_Left"
+    Arkusz1.Range("F2:G101").Value = Arkusz0.Range("AS2:AT101").Value
+    Case "Cougar_MFD_Right"
+    Arkusz1.Range("F2:G101").Value = Arkusz0.Range("AV2:AW101").Value
+    Case ""
+    Arkusz3.Range("A2:C2000").ClearContents
+    
+End Select
+
+ActiveWorkbook.RefreshAll
+
+End Sub
+
+
+Sub PDF_Stworz_wizualizacje_bindow()
+
+Dim Z_Funkcja_przycisku, Z_Nazwa_statku As String
+Dim Z_Przycisk_aktualny, Z_Liczba_przyciskow_kontroler1, Z_Liczba_przyciskow_kontroler2 As Long
+Dim Z_Czas_czekania As Double
+Z_Czas_czekania = 50
+
+Z_Nazwa_statku = Arkusz5.Range("N6").Value
+
+With Arkusz4
+Z_Liczba_przyciskow_kontroler1 = Arkusz4.Range("A105").End(xlUp).Row - 4 'Ostatni przycisk kontrolera 1
+Z_Liczba_przyciskow_kontroler2 = Arkusz4.Range("K105").End(xlUp).Row - 4 'Ostatni przycisk kontrolera 2
+
+Application.SendKeys "{Tab}", True 'Setup
+Application.SendKeys "{Tab}", True 'Notatki
+Application.SendKeys "{Tab}", True 'Statek
+
+If Z_Liczba_przyciskow_kontroler1 = 1 Then Z_Liczba_przyciskow_kontroler1 = 0
+If Z_Liczba_przyciskow_kontroler1 = 0 Then GoTo BrakKontrolera1z
+For Z_Przycisk_aktualny = 5 To Z_Liczba_przyciskow_kontroler1 + 4
+Z_Funkcja_przycisku = Arkusz4.Range("C" & Z_Przycisk_aktualny).Value 'Funkcja przycisku zwyklego kontrolera 1
+Application.SendKeys "{Tab}", True
+Sleep Z_Czas_czekania
+Application.SendKeys "~", True
+Sleep Z_Czas_czekania
+Application.SendKeys "{Backspace}", True
+Sleep Z_Czas_czekania
+Application.SendKeys ("^b"), True 'Boldowanie
+Sleep Z_Czas_czekania
+Application.SendKeys Z_Funkcja_przycisku, True
+Sleep Z_Czas_czekania
+Application.SendKeys " ", True
+Sleep Z_Czas_czekania
+Next Z_Przycisk_aktualny
+BrakKontrolera1z:
+
+If Z_Liczba_przyciskow_kontroler2 = 1 Then Z_Liczba_przyciskow_kontroler2 = 0
+If Z_Liczba_przyciskow_kontroler2 = 0 Then GoTo BrakKontrolera2z
+For Z_Przycisk_aktualny = 5 To Z_Liczba_przyciskow_kontroler2 + 4
+Z_Funkcja_przycisku = Arkusz4.Range("M" & Z_Przycisk_aktualny).Value 'Funkcja przycisku zwyklego kontrolera 2
+Application.SendKeys "{Tab}", True
+Sleep Z_Czas_czekania
+Application.SendKeys "~", True
+Sleep Z_Czas_czekania
+Application.SendKeys "{Backspace}", True
+Sleep Z_Czas_czekania
+Application.SendKeys ("^b"), True 'Boldowanie
+Sleep Z_Czas_czekania
+Application.SendKeys Z_Funkcja_przycisku, True
+Sleep Z_Czas_czekania
+Application.SendKeys " ", True
+Sleep Z_Czas_czekania
+Next Z_Przycisk_aktualny
+BrakKontrolera2z:
+
+Application.SendKeys "{Tab}", True 'Setup
+Application.SendKeys "{Tab}", True 'Notatki
+Application.SendKeys "{Tab}", True 'Statek
+
+If Z_Liczba_przyciskow_kontroler1 = 0 Then GoTo BrakKontrolera1m1
+For Z_Przycisk_aktualny = 5 To Z_Liczba_przyciskow_kontroler1 + 4
+Z_Funkcja_przycisku = Arkusz4.Range("E" & Z_Przycisk_aktualny).Value 'Funkcja przycisku modowanego1 kontrolera 1
+Application.SendKeys "{Tab}", True
+Sleep Z_Czas_czekania
+If Z_Funkcja_przycisku = "" Then GoTo BrakModyfikatora1
+
+Application.SendKeys "~", True
+Sleep Z_Czas_czekania
+Application.SendKeys "{End}", True
+Sleep Z_Czas_czekania
+Application.SendKeys "~", True
+Sleep Z_Czas_czekania
+Application.SendKeys "/ ", True
+Sleep Z_Czas_czekania
+Application.SendKeys "+{Home}", True
+Sleep Z_Czas_czekania
+Application.SendKeys ("%y"), True
+Sleep Z_Czas_czekania
+Application.SendKeys ("%1"), True
+Sleep Z_Czas_czekania
+Application.SendKeys ("%y"), True
+Sleep Z_Czas_czekania
+Application.SendKeys ("%i"), True
+Sleep Z_Czas_czekania
+Application.SendKeys "{End}", True
+Sleep Z_Czas_czekania
+Application.SendKeys Z_Funkcja_przycisku, True
+Sleep Z_Czas_czekania
+Application.SendKeys " ", True
+Sleep Z_Czas_czekania
+
+BrakModyfikatora1:
+Next Z_Przycisk_aktualny
+BrakKontrolera1m1:
+
+If Z_Liczba_przyciskow_kontroler2 = 0 Then GoTo BrakKontrolera2m1
+For Z_Przycisk_aktualny = 5 To Z_Liczba_przyciskow_kontroler2 + 4
+Z_Funkcja_przycisku = Arkusz4.Range("O" & Z_Przycisk_aktualny).Value 'Funkcja przycisku modowanego1 kontrolera 2
+Application.SendKeys "{Tab}", True
+Sleep Z_Czas_czekania
+If Z_Funkcja_przycisku = "" Then GoTo BrakModyfikatora2
+
+Application.SendKeys "~", True
+Sleep Z_Czas_czekania
+Application.SendKeys "{End}", True
+Sleep Z_Czas_czekania
+Application.SendKeys "~", True
+Sleep Z_Czas_czekania
+Application.SendKeys "/ ", True
+Sleep Z_Czas_czekania
+Application.SendKeys "+{Home}", True
+Sleep Z_Czas_czekania
+Application.SendKeys ("%y"), True
+Sleep Z_Czas_czekania
+Application.SendKeys ("%1"), True
+Sleep Z_Czas_czekania
+Application.SendKeys ("%y"), True
+Sleep Z_Czas_czekania
+Application.SendKeys ("%i"), True
+Sleep Z_Czas_czekania
+Application.SendKeys "{End}", True
+Sleep Z_Czas_czekania
+Application.SendKeys Z_Funkcja_przycisku, True
+Sleep Z_Czas_czekania
+Application.SendKeys " ", True
+Sleep Z_Czas_czekania
+
+BrakModyfikatora2:
+Next Z_Przycisk_aktualny
+BrakKontrolera2m1:
+
+Application.SendKeys "{Tab}", True 'Setup
+Application.SendKeys "{Tab}", True 'Notatki
+Application.SendKeys "{Tab}", True 'Statek
+
+If Z_Liczba_przyciskow_kontroler1 = 0 Then GoTo BrakKontrolera1m2
+For Z_Przycisk_aktualny = 5 To Z_Liczba_przyciskow_kontroler1 + 4
+Z_Funkcja_przycisku = Arkusz4.Range("G" & Z_Przycisk_aktualny).Value 'Funkcja przycisku modowanego2 kontrolera 1
+Application.SendKeys "{Tab}", True
+Sleep Z_Czas_czekania
+If Z_Funkcja_przycisku = "" Then GoTo BrakModyfikatora3
+
+Application.SendKeys "~", True
+Sleep Z_Czas_czekania
+Application.SendKeys "{End}", True
+Sleep Z_Czas_czekania
+Application.SendKeys "~", True
+Sleep Z_Czas_czekania
+Application.SendKeys "/ ", True
+Sleep Z_Czas_czekania
+Application.SendKeys Z_Funkcja_przycisku, True
+Sleep Z_Czas_czekania
+Application.SendKeys " ", True
+
+BrakModyfikatora3:
+Next Z_Przycisk_aktualny
+BrakKontrolera1m2:
+
+If Z_Liczba_przyciskow_kontroler2 = 0 Then GoTo BrakKontrolera2m2
+For Z_Przycisk_aktualny = 5 To Z_Liczba_przyciskow_kontroler2 + 4
+Z_Funkcja_przycisku = Arkusz4.Range("Q" & Z_Przycisk_aktualny).Value 'Funkcja przycisku modowanego2 kontrolera 2
+Application.SendKeys "{Tab}", True
+Sleep Z_Czas_czekania
+If Z_Funkcja_przycisku = "" Then GoTo BrakModyfikatora4
+
+Application.SendKeys "~", True
+Sleep Z_Czas_czekania
+Application.SendKeys "{End}", True
+Sleep Z_Czas_czekania
+Application.SendKeys "~", True
+Sleep Z_Czas_czekania
+Application.SendKeys "/ ", True
+Sleep Z_Czas_czekania
+Application.SendKeys Z_Funkcja_przycisku, True
+Sleep Z_Czas_czekania
+Application.SendKeys " ", True
+Sleep Z_Czas_czekania
+
+BrakModyfikatora4:
+Next Z_Przycisk_aktualny
+BrakKontrolera2m2:
+
+Application.SendKeys "{Tab}", True 'Setup
+Application.SendKeys "{Tab}", True 'Notatki
+Application.SendKeys "{Tab}", True 'Statek
+
+If Z_Liczba_przyciskow_kontroler1 = 0 Then GoTo BrakKontrolera1_WYROWNAJ 'Wyrownanie do srodka opisow funkcji przyciskow kontrolera 1
+For Z_Przycisk_aktualny = 5 To Z_Liczba_przyciskow_kontroler1 + 4
+Application.SendKeys "{Tab}", True
+Sleep Z_Czas_czekania
+Application.SendKeys "~", True
+Sleep Z_Czas_czekania
+Application.SendKeys ("^a"), True
+Sleep Z_Czas_czekania
+Application.SendKeys ("%y"), True
+Sleep Z_Czas_czekania
+Application.SendKeys ("%1"), True
+Sleep Z_Czas_czekania
+Application.SendKeys ("%y"), True
+Sleep Z_Czas_czekania
+Application.SendKeys ("%b"), True
+Next Z_Przycisk_aktualny
+BrakKontrolera1_WYROWNAJ:
+
+If Z_Liczba_przyciskow_kontroler2 = 0 Then GoTo BrakKontrolera2_WYROWNAJ 'Wyrownanie do srodka opisow funkcji przyciskow kontrolera 2
+For Z_Przycisk_aktualny = 5 To Z_Liczba_przyciskow_kontroler2 + 4
+Application.SendKeys "{Tab}", True
+Sleep Z_Czas_czekania
+Application.SendKeys "~", True
+Sleep Z_Czas_czekania
+Application.SendKeys ("^a"), True
+Sleep Z_Czas_czekania
+Application.SendKeys ("%y"), True
+Sleep Z_Czas_czekania
+Application.SendKeys ("%1"), True
+Sleep Z_Czas_czekania
+Application.SendKeys ("%y"), True
+Sleep Z_Czas_czekania
+Application.SendKeys ("%b"), True
+Next Z_Przycisk_aktualny
+BrakKontrolera2_WYROWNAJ:
+
+Application.SendKeys "{Tab}", True 'Setup
+Application.SendKeys "~", True
+Z_Funkcja_przycisku = "Controller 1 - " & Arkusz4.Range("A2").Value & " with " & Z_Liczba_przyciskow_kontroler1 & " ENTITIES, " & "MOD1 - '" & Arkusz4.Range("B2") & "', MOD2 - '" & Arkusz4.Range("C2") & "'"
+Application.SendKeys Z_Funkcja_przycisku, True
+Application.SendKeys "~", True
+Z_Funkcja_przycisku = "Controller 2 - " & Arkusz4.Range("J2").Value & " with " & Z_Liczba_przyciskow_kontroler2 & " ENTITIES, " & "MOD1 - '" & Arkusz4.Range("K2") & "', MOD2 - '" & Arkusz4.Range("L2") & "'"
+Application.SendKeys Z_Funkcja_przycisku, True
+Application.SendKeys "{Tab}", True 'Notatki
+Application.SendKeys "{Tab}", True 'Statek
+Sleep Z_Czas_czekania
+Z_Funkcja_przycisku = Z_Nazwa_statku
+Application.SendKeys "~", True
+Sleep Z_Czas_czekania
+Application.SendKeys Z_Funkcja_przycisku, True
+
+'MsgBox "Controller 1 - " & Arkusz4.Range("A2").Value & " with " & Z_Liczba_przyciskow_kontroler1 & " ENTITIES, " & "MOD1 - '" & Arkusz4.Range("B2") & "', MOD2 - '" & Arkusz4.Range("C2") & "'"
+'MsgBox "Controller 2 - " & Arkusz4.Range("J2").Value & " with " & Z_Liczba_przyciskow_kontroler2 & " ENTITIES, " & "MOD1 - '" & Arkusz4.Range("K2") & "', MOD2 - '" & Arkusz4.Range("L2") & "'"
+
+End With
+
+End Sub
+
+
+Sub PDF_Stworz_wizualizacje_bindow_automatic()
+
+Dim Z_Nazwa_pliku_szablonu, Z_Nazwa_folderu_zapisu, Z_Nazwa_pliku_wizualizacji_bindow, Z_Komenda, Z_Nazwa_pliku_zapisu, Z_Plik_exe_edytora As String
+Dim Z_Czas_czekania As Double
+Z_Czas_czekania = 50
+
+Arkusz5.Range("J14").Value = "NIEWYKONANA" & Chr(10) & "NOT PERFORMED"
+Arkusz5.Range("J27").Value = "NIEWYKONANA" & Chr(10) & "NOT PERFORMED"
+Arkusz5.Range("J39").Value = "NIEWYKONANY" & Chr(10) & "NOT PERFORMED"
+
+If Arkusz5.Range("G6").Value = "" Then MsgBox "Brak Kontrolera 1! Przerywam." & Chr(10) & "No Controller 1! Aborting."
+If Arkusz5.Range("G6").Value = "" Then GoTo BrakKontrolera1
+
+With Arkusz5
+Z_Plik_szablonu = Arkusz5.Range("F18").Value 'Nazwa pliku szablonu
+Z_Nazwa_folderu_zapisu = Arkusz5.Range("F21").Value 'Nazwa folderu zapisu
+Z_Nazwa_pliku_zapisu = Arkusz5.Range("N6").Value & "_" & Arkusz5.Range("G6").Value & "_" & Arkusz5.Range("J6").Value & "_" & Date & "_" & Format(Hour(Now()), "00") & "." & Format(Minute(Now()), "00") & "." & Format(Minute(Now()), "00")
+
+MsgBox "Wizualizacja bindów rozpoczyna się. Proszę potwierdź i czekaj." & Chr(10) & "Bind visualization is starting. Please confirm and wait."
+
+Z_Plik_exe_edytora = Arkusz5.Range("F24").Value
+Z_Komenda = Z_Plik_exe_edytora & " """ & Z_Plik_szablonu & """"
+Shell (Z_Komenda)
+
+Sleep 2000
+PDF_Stworz_wizualizacje_bindow
+Sleep Z_Czas_czekania
+Application.SendKeys ("%f"), True
+Sleep Z_Czas_czekania
+Application.SendKeys ("%a"), True
+Sleep Z_Czas_czekania
+Application.SendKeys ("%b"), True
+Sleep Z_Czas_czekania
+Application.SendKeys (Z_Nazwa_pliku_zapisu), True
+Sleep Z_Czas_czekania
+Application.SendKeys ("%a"), True
+Sleep Z_Czas_czekania
+Application.SendKeys (Z_Nazwa_folderu_zapisu), True
+Sleep Z_Czas_czekania
+Application.SendKeys ("%z"), True
+Sleep 2000
+Application.SendKeys "%{F4}", True
+Sleep 2000
+Arkusz5.Range("F34").Value = Z_Nazwa_folderu_zapisu & "\" & Z_Nazwa_pliku_zapisu & ".pdf"
+
+AppActivate Application.Caption
+
+MsgBox "Wizualizacja bindów zakończyła się." & Chr(10) & "Bind visualization has ended."
+Arkusz5.Range("J27").Value = "ZREALIZOWANA" & Chr(10) & "FINISHED"
+
+End With
+  
+BrakKontrolera1:
+
+End Sub
+
+
+Sub IMG_Eksportuj_do_kneeboarda()
+
+Dim Z_Nazwa_statku, Z_Sciezka_pliku_do_kneeboarda, Z_Nazwa_pliku_do_kneeboarda, Z_Plik_exe_edytora, Z_Komenda, Z_Folder_do_kneeboarda, Z_Sciezka_folderu As String
+Dim Z_Czas_czekania As Double
+Z_Czas_czekania = 50
+
+Arkusz5.Range("J14").Value = "NIEWYKONANA" & Chr(10) & "NOT PERFORMED"
+Arkusz5.Range("J27").Value = "NIEWYKONANA" & Chr(10) & "NOT PERFORMED"
+Arkusz5.Range("J39").Value = "NIEWYKONANY" & Chr(10) & "NOT PERFORMED"
+
+MsgBox "Export do Kneeboarda rozpoczyna się. Proszę potwierdź i czekaj." & Chr(10) & "Export to Kneeboard is starting. Please confirm and wait."
+
+Z_Nazwa_statku = Arkusz5.Range("N6").Value
+Z_Sciezka_pliku_do_kneeboarda = Arkusz5.Range("F34").Value
+Z_Nazwa_pliku_do_kneeboarda = Right(Z_Sciezka_pliku_do_kneeboarda, Len(Z_Sciezka_pliku_do_kneeboarda) - InStrRev(Z_Sciezka_pliku_do_kneeboarda, "\"))
+Z_Plik_exe_edytora = Arkusz5.Range("F24").Value
+Z_Folder_do_kneeboarda = Arkusz5.Range("F37").Value
+Z_Sciezka_folderu = Z_Folder_do_kneeboarda & "\" & Z_Nazwa_statku
+
+With CreateObject("Scripting.FileSystemObject")
+    If Not .FolderExists(Z_Sciezka_folderu) Then .CreateFolder Z_Sciezka_folderu
+End With
+
+Z_Komenda = Z_Plik_exe_edytora & " """ & Z_Sciezka_pliku_do_kneeboarda & """"
+Shell (Z_Komenda)
+
+Sleep 2000
+Application.SendKeys ("%f"), True
+Sleep Z_Czas_czekania
+Application.SendKeys ("%e"), True
+Sleep Z_Czas_czekania
+Application.SendKeys ("%im"), True
+Sleep Z_Czas_czekania
+Application.SendKeys "{Tab}", True
+Sleep Z_Czas_czekania
+Application.SendKeys "{Tab}", True
+Sleep Z_Czas_czekania
+Application.SendKeys "{Tab}", True
+Sleep Z_Czas_czekania
+Application.SendKeys "{Tab}", True
+Sleep Z_Czas_czekania
+Application.SendKeys "{Tab}", True
+Sleep Z_Czas_czekania
+Application.SendKeys "{Tab}", True
+Sleep Z_Czas_czekania
+Application.SendKeys "{Tab}", True
+Sleep Z_Czas_czekania
+Application.SendKeys "{Tab}", True
+Sleep Z_Czas_czekania
+Application.SendKeys "{Tab}", True
+Sleep Z_Czas_czekania
+Application.SendKeys (Z_Sciezka_folderu), True
+Sleep Z_Czas_czekania
+Application.SendKeys "{Tab}", True
+Sleep Z_Czas_czekania
+Application.SendKeys "{Tab}", True
+Sleep Z_Czas_czekania
+Application.SendKeys ("0." & Z_Nazwa_pliku_do_kneeboarda), True
+Sleep Z_Czas_czekania
+Application.SendKeys "{BACKSPACE}", True
+Sleep Z_Czas_czekania
+Application.SendKeys "{BACKSPACE}", True
+Sleep Z_Czas_czekania
+Application.SendKeys "{BACKSPACE}", True
+Sleep Z_Czas_czekania
+Application.SendKeys "~", True
+Sleep 1000
+Application.SendKeys "%{F4}", True
+Sleep 1000
+Application.SendKeys "%{F4}", True
+Sleep 1000
+
+AppActivate Application.Caption
+
+MsgBox "Export do Kneeborda zakończył się." & Chr(10) & "Export to Kneeboard has ended."
+Arkusz5.Range("J39").Value = "ZREALIZOWANY" & Chr(10) & "FINISHED"
+
+End Sub
