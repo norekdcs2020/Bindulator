@@ -204,6 +204,8 @@ Select Case Z_TypKontroler1
     Arkusz1.Range("B2:C101").Value = Arkusz0.Range("AS2:AT101").Value
     Case "Cougar_MFD_Right"
     Arkusz1.Range("B2:C101").Value = Arkusz0.Range("AV2:AW101").Value
+    Case "Gunfighter_Stick"
+    Arkusz1.Range("B2:C101").Value = Arkusz0.Range("AY2:AZ101").Value
     Case ""
     Arkusz2.Range("A2:C2000").ClearContents
     
@@ -243,6 +245,8 @@ Select Case Z_TypKontroler2
     Arkusz1.Range("F2:G101").Value = Arkusz0.Range("AS2:AT101").Value
     Case "Cougar_MFD_Right"
     Arkusz1.Range("F2:G101").Value = Arkusz0.Range("AV2:AW101").Value
+    Case "Gunfighter_Stick"
+    Arkusz1.Range("F2:G101").Value = Arkusz0.Range("AY2:AZ101").Value
     Case ""
     Arkusz3.Range("A2:C2000").ClearContents
     

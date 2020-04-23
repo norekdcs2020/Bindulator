@@ -59,6 +59,7 @@ The Bindulator has only been tested and confirmed to work in this software confi
 - Thrustmaster Cougar MFD (Left),
 - Thrustmaster Cougar MFD (Right),
 - Virpil (VPC) MongoosT-50CM2 Stick,
+- VKB Gunfighter Stick,
 - Logitech Force 3D Pro Stick,
 - Logitech Extreme 3D Pro Stick,
 - Saitek X52 Stick (**read lower Warning**),
@@ -72,7 +73,6 @@ The Bindulator has only been tested and confirmed to work in this software confi
 As far as I know your setup (Stick + Throttle) is always understood by DCS as one, combined controller. Using the Bindulator is possible by choosing your combined HTML file **once** at Controller 1 **only**. Then select appropiate X52 Stick template for Stick bind visualization and follow the other Bindulator steps. After that select appropiate X52 Throttle template for Throttle bind visualization and once again follow the other Bindulator steps.
 
 ### Todo
-- VKB Gunfighter,
 - VPC T-50 CM throttle.
 
 <BR>
@@ -107,11 +107,12 @@ OR:
 - Press the No. 11 button and watch how the Bindulator does the job,
 - Check if everything works in DCS World. Do not forget to bind keys for Kneeboard ON/OFF or GLANCE and NEXT/PREVIOUS kneeboard pages. Your kneeboards should appear after pressing the NEXT button for a few times.
 - Profit?
-- Repeat previous steps if needed for different controllers and airships.
+- Repeat previous steps if needed for different controllers and aircrafts.
 
 <BR>
        
 ## Changelog
+- v0.305 - added support for VKB Gunfighter Stick, small graphic fix for MFD Cougar Left Template,
 - v0.304 - added support for Thrustmaster MFD Cougar (mirrored Left and Right versions) + added adequate Templates,
 - v0.303 - wait delay unification, minor fixes,
 - v0.302 - bold font fix,
